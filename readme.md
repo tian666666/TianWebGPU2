@@ -2,14 +2,14 @@
  * @Description: 
  * @Author: tianyw
  * @Date: 2023-01-25 15:18:01
- * @LastEditTime: 2023-01-27 00:25:35
+ * @LastEditTime: 2023-04-09 17:24:26
  * @LastEditors: tianyw
 -->
-# webgl2-tian-gis
+# webgpu-tian-gis
 
 ## Description
 
-a 3d gis webgl2 application
+a 3d gis webgpu application
 
 ## Install and Run
 
@@ -17,10 +17,10 @@ Type the following in any terminal:
 
 ```bash
 # Clone the repo
-git clone https://github.com/tian666666/webgl2-tian-gis.git
+git clone https://github.com/tian666666/TianWebGPU2.git
 
 # Go inside the folder
-cd webgl2-tian-gis
+cd TIANWEBGPU2
 
 # Start installing dependencies
 npm install #or yarn
