@@ -1,0 +1,29 @@
+{
+    "name": "webgl2-tian-gis",
+    "version": "0.1.0",
+    "author": "tian",
+    "description": "tian webgl2 vite template & samples",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/tian666666/webgl2-tian-gis.git"
+    },
+    "scripts": {
+        "dev": "vite",
+        "build": "tsc && vite build --config vite.config.github.js",
+        "preview": "vite preview"
+    },
+    "keywords": [
+        "webgpu",
+        "types",
+        "typescript"
+    ],
+    "devDependencies": {
+        "@types/node": "^18.15.11",
+        "@webgpu/types": "^0.1.30",
+        "typescript": "^5.0.4"
+    },
+    "dependencies": {
+        "gl-matrix": "^3.4.3",
+        "vite": "^4.0.4"
+    }
+}
