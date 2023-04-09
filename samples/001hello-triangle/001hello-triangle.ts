@@ -2,7 +2,7 @@
  * @Description:
  * @Author: tianyw
  * @Date: 2023-04-08 20:03:35
- * @LastEditTime: 2023-04-09 09:13:37
+ * @LastEditTime: 2023-04-09 15:01:49
  * @LastEditors: tianyw
  */
 export type SampleInit = (params: {
@@ -12,11 +12,12 @@ export type SampleInit = (params: {
 import triangleVertWGSL from "./shaders/triangle.vert.wgsl?raw";
 import redFragWGSL from "./shaders/red.frag.wgsl?raw";
 const init: SampleInit = async ({ canvas }) => {
-  const adapter = (await navigator.gpu.requestAdapter()) as GPUAdapter;
+  const adapter = await navigator.gpu.requestAdapter();
+  if (!adapter) return;
   const device = await adapter.requestDevice();
 
-  const context = canvas.getContext("webgpu") as GPUCanvasContext;
-
+  const context = canvas.getContext("webgpu");
+  if (!context) return;
   const devicePixelRatio = window.devicePixelRatio || 1;
   canvas.width = canvas.clientWidth * devicePixelRatio;
   canvas.height = canvas.clientHeight * devicePixelRatio;
@@ -48,12 +49,17 @@ const init: SampleInit = async ({ canvas }) => {
       ]
     },
     primitive: {
+      // topology: "line-list"
+      // topology: "line-strip"
+      //  topology: "point-list"
       topology: "triangle-list"
+      // topology: "triangle-strip"
     }
   });
 
   function frame() {
     const commandEncoder = device.createCommandEncoder();
+    if (!context) return;
     const textureView = context.getCurrentTexture().createView();
     const renderPassDescriptor: GPURenderPassDescriptor = {
       colorAttachments: [
